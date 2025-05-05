@@ -1,0 +1,28 @@
+type Movie
+{
+    id: ID!
+    title: String!
+    genre: String!
+    releaseDate: String!
+    availableCopies: Int
+}
+
+type Query
+{
+    fetchAllMovies: [Movie]
+    fetchMovie(id: ID!): Movie
+    fetchMovieByTitle(title: String!): Movie
+}
+
+input MovieInput
+{
+    title: String!
+    genre: String!
+    releaseDate: String!
+    availableCopies: Int
+}
+
+type Mutation
+{
+    insertMovie(input: MovieInput!): Movie
+}
