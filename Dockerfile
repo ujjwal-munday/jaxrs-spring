@@ -1,8 +1,8 @@
 FROM openjdk:17-jdk-alpine
 WORKDIR /app
-COPY build.gradle settings.gradle gradlew /app/
+COPY gradlew /app/
 COPY gradle /app/gradle
+COPY build.gradle settings.gradle ./
+RUN chmod +x ./gradlew
 RUN ./gradlew build --no-daemon
-COPY . /app
-RUN ./gradlew build
 CMD ["java", "-jar", "build/libs/jaxrs-spring.jar"]

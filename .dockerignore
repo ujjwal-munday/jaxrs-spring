@@ -1,0 +1,14 @@
+**
+!gradlew
+!gradle/**
+!build.gradle
+!settings.gradle
+!src/**
+
+build/
+*.iml
+.idea/
+*.log
+*.tmp
+*.swp
+.DS_Store
