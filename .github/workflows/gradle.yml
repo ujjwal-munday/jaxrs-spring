@@ -35,8 +35,8 @@ jobs:
 
       - name: Build Docker images (latest + version)
         run: |
-          docker build -t ujjwal013:latest
+          docker build -t ujjwal013/service:latest
 
       - name: Push Docker images (latest + version)
         run: |
-          docker push ujjwal013:latest
+          docker push ujjwal013/service:latest
