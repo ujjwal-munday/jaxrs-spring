@@ -12,9 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-    strategy:
-      matrix:
-        service: [ "service1", "service2", "service-3" ]
 
     steps:
       - uses: actions/checkout@v4
@@ -38,8 +35,8 @@ jobs:
 
       - name: Build Docker images (latest + version)
         run: |
-          docker build -t ujjwal013/${{ matrix.service }}:latest
+          docker build -t ujjwal013
 
       - name: Push Docker images (latest + version)
         run: |
-          docker push ujjwal013/${{ matrix.service }}:latest
+          docker push ujjwal013
