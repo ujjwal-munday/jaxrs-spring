@@ -5,4 +5,5 @@ COPY gradle /app/gradle
 COPY build.gradle settings.gradle ./
 RUN chmod +x ./gradlew
 RUN ./gradlew build --no-daemon
-CMD ["java", "-cp", "/app/build/classes/java/main"]
+COPY build/libs/*.jar app.jar
+ENTRYPOINT ["java", "-jar", "app.jar"]
