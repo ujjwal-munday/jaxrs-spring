@@ -35,8 +35,19 @@ jobs:
 
       - name: Build Docker images (latest + version)
         run: |
-          docker build -t ujjwal013
+          # Define version/tag for Docker image
+          VERSION=$(git rev-parse --short HEAD)
+          IMAGE_NAME="ujjwal013/jaxrs-app"
+            
+          # Build Docker image with latest tag and version tag
+          docker build -t $IMAGE_NAME:latest -t $IMAGE_NAME:$VERSION .
 
       - name: Push Docker images (latest + version)
         run: |
-          docker push ujjwal013
+          # Define version/tag for Docker image
+          VERSION=$(git rev-parse --short HEAD)
+          IMAGE_NAME="ujjwal013/jaxrs-app"
+                
+          # Push both tags to Docker Hub
+          docker push $IMAGE_NAME:latest
+          docker push $IMAGE_NAME:$VERSION
