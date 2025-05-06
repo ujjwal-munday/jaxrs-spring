@@ -5,4 +5,4 @@ COPY gradle /app/gradle
 COPY build.gradle settings.gradle ./
 RUN chmod +x ./gradlew
 RUN ./gradlew build --no-daemon
-CMD ["java", "-jar", "build/libs/jaxrs-spring.jar"]
+CMD ["java", "-cp", "/app/build/classes/java/main"]
